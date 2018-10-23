@@ -1,9 +1,4 @@
 # ApplicationStore
-
-[![Build Status](https://travis-ci.org/winniekariuki/Challenge2.svg?branch=master)](https://travis-ci.org/winniekariuki/Challenge2)
-[![Coverage Status](https://coveralls.io/repos/github/winniekariuki/Challenge2/badge.svg?branch=develop)](https://coveralls.io/github/winniekariuki/Challenge2?branch=develop)
-[![Maintainability](https://api.codeclimate.com/v1/badges/7208309d388e16f5a084/maintainability)](https://codeclimate.com/github/winniekariuki/Challenge2/maintainability)
-
 <div>Store Manager is a web application that helps store owners manage sales and
 product inventory records. This application is meant for use in a single store.</div>
 
@@ -45,13 +40,23 @@ _Router used-'api/v1/sales/1' GET METHOD.</p>
 <div><h2>Installation</h2>
   <ol>
      <li>Open a repo in github</li>
-     <li>Clone the repository into the local machine through the terminal by: git clone https://github.com/</li>
+     <li>Clone the repository into the local machine through the terminal by: git clone https://github.com/winniekariuki/Challenge2.git</li>
      <li>Create a virtual enviroment with the command $ virtualenv -p python3 env</li>
-     <li>Activate the virtual enviroment with the command `Desktop/ApplicationStore/env/Scripts/activate</li>
-     <li>Ensure you have installed GIT</li>
-     
-     <li>Install requirements $ pip install -r requirements.txt</li>
-   </ol>
+     <li>Activate the virtual enviroment with the command `Desktop/ApplicationStore/env/Scripts/activate`</li>
+    <li>cd back into the ApplicationStore where you include all your code related files.</li>
+    <li>Install requirements $ pip install -r requirements.txt</li>
+  </ol>
 </div>
-   
-<div>https://challeng.herokuapp.com</div>
+<div><h2>How to test</h2>
+  <p>The endpoints can be tested through the postman by sending the link gotten from the terminal after running the app with the their respective routers</p>
+  <p>To test if the tests pass you run the pytest command in the terminal</p>
+</div>
+<div>
+  <h2>Links</h2>
+  <ul>
+   <li> https://challeng.herokuapp.com</li>
+ <li> [![Build Status](https://travis-ci.org/winniekariuki/Challenge2.svg?branch=master)](https://travis-ci.org/winniekariuki/Challenge2)
+[![Coverage Status](https://coveralls.io/repos/github/winniekariuki/Challenge2/badge.svg?branch=develop)](https://coveralls.io/github/winniekariuki/Challenge2?branch=develop)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7208309d388e16f5a084/maintainability)](https://codeclimate.com/github/winniekariuki/Challenge2/maintainability)
+  </ul>
+</div>
