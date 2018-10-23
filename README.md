@@ -6,21 +6,26 @@ https://challeng.herokuapp.com
 Store Manager is a web application that helps store owners manage sales and product inventory records. This application is meant for use in a single store.
 **Sign up endpoint**
 Enables a new user to sign up into the application.
-__Router__ used 'api/v1/users' POST METHOD.
+_Router_ used 'api/v1/users' POST METHOD.
 **Login endpoint**
 Enables a registered user to login into the application after which an access token is assigned to him/her to enable him/her to access authenticated endpoints.
-__Router used__'api/v1/login' POST METHOD.
+_Router used_'api/v1/login' POST METHOD.
 **Post Product endpoint**
 Enables the store admin to create a new product and post.Only the store admin can access this endpoint.
 _Router used_'api/v1/products' POST METHOD.
 **GET product endpoint**
 No access token required.The endpoint enables a user to view all the available products in the inventory.
-_Router used_'api/v1/products' GET METHOD.
+_Router used_'api/vi/products' GET METHOD.
 **GET Single product**
-No access token required.This endpoint allows a user to get a specific product from the inventory by passing the product id in the router.
-_Router used_'api/v1/products/1' GET METHOD
-**POST sales endpoint**
-This endpoint is only accessible to the store attendant which enables him or her to create a sale record by passing a sale id which then produces a sale records.
+No access token required.Enables a user to get a single product from the inventory.
+_Router used_'api/v1/products/1' POST METHOD
+**POST sale endpoint**
+Only the store attendant is allowed to access this endpoint.Enables the store attendant to post a sale record by passing the sale 'id' which in return posts the sale 'id' and the product details which include price of the product,name and model_no.
+_Router used_'api/v1/sales' POST METHOD
+**Get all sales endpoint**
+The endpoint allows the admin to get all the sale records posted by the store attendants.Only accessible by the admin.
+_Router used_'api/v1/sales' GET METHOD.
+
 
     Sign up to the application
     Login to the application
