@@ -49,14 +49,14 @@ _Router used-'api/v1/sales/1' GET METHOD.</p>
 </div>
 <div><h2>How to test</h2>
   <p>The endpoints can be tested through the postman by sending the link gotten from the terminal after running the app with the their respective routers</p>
-  <p>To test if the tests pass you run the pytest command in the terminal</p>
+  <p>To test if the tests pass you run the pytest command in the terminal but before that one has to pass the the secret using the command $ set SECRET_KEY='thisissecret'</p>
 </div>
 <div>
   <h2>Links</h2>
-  <ul>
-   <li> https://challeng.herokuapp.com</li>
- <li> [![Build Status](https://travis-ci.org/winniekariuki/Challenge2.svg?branch=master)](https://travis-ci.org/winniekariuki/Challenge2)
+ 
+    https://challeng.herokuapp.com
+  [![Build Status](https://travis-ci.org/winniekariuki/Challenge2.svg?branch=master)](https://travis-ci.org/winniekariuki/Challenge2)
 [![Coverage Status](https://coveralls.io/repos/github/winniekariuki/Challenge2/badge.svg?branch=develop)](https://coveralls.io/github/winniekariuki/Challenge2?branch=develop)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7208309d388e16f5a084/maintainability)](https://codeclimate.com/github/winniekariuki/Challenge2/maintainability)
-  </ul>
+  
 </div>
