@@ -23,7 +23,7 @@ _Router used_'api/v1/products' POST METHOD.</p>
 <h2>GET product endpoint</h2>
 <p>No access token required.The endpoint enables a user to
 view all the available products in the inventory.
-_Router used_'api/vi/products' GET METHOD.</p>
+_Router used_'api/v1/products' GET METHOD.</p>
 <h2>GET Single product</h2>
 pP>No access token required.Enables a user to get a single
 product from the inventory.
