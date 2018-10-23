@@ -21,28 +21,29 @@ _Router used_'api/v1/login' POST METHOD.</p>
 Only the store admin can access this endpoint.
 _Router used_'api/v1/products' POST METHOD.</p>
 <h2>GET product endpoint</h2>
-No access token required.The endpoint enables a user to
+<p>No access token required.The endpoint enables a user to
 view all the available products in the inventory.
-_Router used_'api/vi/products' GET METHOD.
-**GET Single product**
-No access token required.Enables a user to get a single
+_Router used_'api/vi/products' GET METHOD.</p>
+<h2>GET Single product</h2>
+pP>No access token required.Enables a user to get a single
 product from the inventory.
-_Router used_'api/v1/products/1' POST METHOD
-**POST sale endpoint**
-Only the store attendant is allowed to access this endpoint.
+_Router used_'api/v1/products/1' POST METHOD</p>
+<h2>POST sale endpoint</h2>
+<p>Only the store attendant is allowed to access this endpoint.
 Enables the store attendant to post a sale record by passing the sale 'id' which 
 in return posts the sale 'id' and the product details which include price of the product,name and model_no.
-_Router used_'api/v1/sales' POST METHOD
-**Get all sales endpoint**
-The endpoint allows the admin to get all the sale records posted
+_Router used_'api/v1/sales' POST METHOD</p>
+<h2>Get all sales endpoint</h2>
+<p>The endpoint allows the admin to get all the sale records posted
 by the store attendants.Only accessible by the admin.
-_Router used_'api/v1/sales' GET METHOD.
-**Get single sale record endpoint**
-The endpoint is only accessible to the store attendant who created it and the store admin.
+_Router used_'api/v1/sales' GET METHOD.</p>
+<h2>Get single sale record endpoint</h2>
+<P>The endpoint is only accessible to the store attendant who created it and the store admin.
 Enables the two to get the sale record.
-_Router used-'api/v1/sales/1' GET METHOD.
-https://challeng.herokuapp.com
+_Router used-'api/v1/sales/1' GET METHOD.</p>
+
 <div>installation</div>
 
 
    
+<div>https://challeng.herokuapp.com</div>
