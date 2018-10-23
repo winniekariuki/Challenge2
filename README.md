@@ -1,4 +1,5 @@
 # ApplicationStore
+
 [![Build Status](https://travis-ci.org/winniekariuki/Challenge2.svg?branch=master)](https://travis-ci.org/winniekariuki/Challenge2)
 [![Coverage Status](https://coveralls.io/repos/github/winniekariuki/Challenge2/badge.svg?branch=develop)](https://coveralls.io/github/winniekariuki/Challenge2?branch=develop)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7208309d388e16f5a084/maintainability)](https://codeclimate.com/github/winniekariuki/Challenge2/maintainability)
@@ -25,14 +26,10 @@ _Router used_'api/v1/sales' POST METHOD
 **Get all sales endpoint**
 The endpoint allows the admin to get all the sale records posted by the store attendants.Only accessible by the admin.
 _Router used_'api/v1/sales' GET METHOD.
+**Get single sale record endpoint**
+The endpoint is only accessible to the store attendant who created it and the store admin.
+Enables the two to get the sale record.
+_Router used-'api/v1/sales/1' GET METHOD.
 
 
-    Sign up to the application
-    Login to the application
-    Post a product
-    Post a Sale
-    Get all products
-    Get single product
-    Get all products
-    Get all sales
-    Get single sale
+   
