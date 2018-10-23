@@ -42,8 +42,16 @@ _Router used_'api/v1/sales' GET METHOD.</p>
 Enables the two to get the sale record.
 _Router used-'api/v1/sales/1' GET METHOD.</p>
 
-<div>installation</div>
-
-
+<div><h2>Installation</h2>
+  <ol>
+     <li>Open a repo in github</li>
+     <li>Clone the repository into the local machine through the terminal by: git clone https://github.com/</li>
+     <li>Create a virtual enviroment with the command $ virtualenv -p python3 env</li>
+     <li>Activate the virtual enviroment with the command `Desktop/ApplicationStore/env/Scripts/activate</li>
+     <li>Ensure you have installed GIT</li>
+     
+     <li>Install requirements $ pip install -r requirements.txt</li>
+   </ol>
+</div>
    
 <div>https://challeng.herokuapp.com</div>
