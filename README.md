@@ -15,9 +15,12 @@ Enables the store admin to create a new product and post.Only the store admin ca
 _Router used_'api/v1/products' POST METHOD.
 **GET product endpoint**
 No access token required.The endpoint enables a user to view all the available products in the inventory.
-_Router used_'api/vi/products' GET METHOD.
+_Router used_'api/v1/products' GET METHOD.
 **GET Single product**
-No access token required enables a user 
+No access token required.This endpoint allows a user to get a specific product from the inventory by passing the product id in the router.
+_Router used_'api/v1/products/1' GET METHOD
+**POST sales endpoint**
+This endpoint is only accessible to the store attendant which enables him or her to create a sale record by passing a sale id which then produces a sale records.
 
     Sign up to the application
     Login to the application
