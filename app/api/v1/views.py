@@ -64,7 +64,7 @@ class UserAccount(Resource):
                 }), 201)
 
 
-class LoginUsers(Resource):
+class LoginUser(Resource):
     def post(self):
         # print(users)
         data = request.get_json()
@@ -92,28 +92,16 @@ class LoginUsers(Resource):
                 'Status': 'Failed',
                 'Message': "No such user found"
                 }), 404)
-        # data=data
-
-        # if not auth or not auth.username or not auth.password:
-        #   return make_response('Could not verify',401,{'WWW-Authenticate':'Basic realm="Login required!"'})
-        # user=users.filter_by(name=auth.username).first()
-
-        # if not user:
-        #   return make_response('Could not verify',401,{'WWW-Authenticate':'Basic realm="Login required!"'})
-
-        # if check_password_hash(user.password,auth.password):
-        #   token = jwt.encode({'id':users.id,'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)},app.config['SECRET_KEY'])
-        #   return jsonify({'token':token.decode('UTF-8')})
-        # return make_response('Could not verify',401,{'WWW-Authenticate':'Basic realm="Login required!"'})
+        
 
 
-class Products(Resource):
+class Produce(Resource):
     def get(self):
         return make_response(jsonify({
 
             "Status": "Ok",
             "Message": "Success",
-            "MyProducts": products
+            "MyProduce": products
 
             }), 200)
     @token_required
@@ -128,8 +116,10 @@ class Products(Resource):
         name = data["name"]
         model_no = data["model_no"]
         price = data["price"]
+        quantity = data["quantity"]
+        date = datetime.datetime.now()
 
-        device = AddProducts(name,model_no,price)
+        device = Product(name,model_no,price,quantity,date)
         device.post_products()
 
 
@@ -154,7 +144,7 @@ class SingleProduct(Resource):
                         }), 200)
 
 
-class SaleRecords(Resource):
+class SaleRecord(Resource):
     @token_required
     def get(user_data, self):
         if  user_data["role"] != "Admin":
@@ -175,17 +165,12 @@ class SaleRecords(Resource):
            return make_response(jsonify({
                 "message":"Not authorized"
                 }) ,401)       
-        data=request.get_json()
+        data = request.get_json()
+        date = datetime.datetime.now()
         print(data)
         for product in products:
             if product['id'] == data:
-                sale = {
-                        'sale_id':len(sale_records)+1,
-                        'sale':product,
-                        'StoreAttendant_id':user_data["id"]
-                        
-                        }
-                sale_records.append(sale)
+                record(id, product) 
             return make_response(jsonify({
                                     "Status":"Created",
                                     "Message":"Post Success",
