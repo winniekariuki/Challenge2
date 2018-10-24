@@ -169,7 +169,7 @@ class SaleRecord(Resource):
         date = datetime.datetime.now()
         print(data)
         for product in products:
-            if product['id'] == data["id"]:
+            if product['id'] == data:
                 record(id, product) 
             return make_response(jsonify({
                                     "Status":"Created",
