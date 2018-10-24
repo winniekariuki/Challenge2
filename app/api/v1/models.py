@@ -19,11 +19,14 @@ class Signup():
         }
         users.append(user)
 
-class AddProducts():
-    def __init__(self,name,model_no,price):
+class Product():
+    def __init__(self,name,model_no,price,quantity,date):
         self.name = name
         self.model_no = model_no
         self.price = price
+        self.quantity = quantity
+        self.date = date
+
 
     def post_products(self):
         
@@ -31,10 +34,23 @@ class AddProducts():
             'id':len(products) + 1,
             'name':self.name,
             'model_no':self.model_no,
-            'price':self.price
+            'price':self.price,
+            'quantity':self.quantity,
+            'date':self.date
 
             }
         products.append(item)
+class record():
+    def __init__(self,id,product):
+        self.id = id
+        sale = {
+                'sale_id':len(sale_records)+1,
+                'sale':product,
+                'StoreAttendant_id':user_data["id"]
+                
+                }
+        sale_records.append(sale)
+
 
 def clear_data():
     users.clear

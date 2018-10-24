@@ -17,7 +17,8 @@ class TestProducts(unittest.TestCase):
             "id":1,
             "name": "del",
             "model_no": "1523",
-            "price": "2516"
+            "price": "2563",
+            "quantity":"quantity"
         })
         self.sale_data = json.dumps({
             "id": 1
@@ -113,7 +114,8 @@ class TestProducts(unittest.TestCase):
             "name": "del",
             "model_no": "1523",
             "price": "2516",
-            "role": "role"
+            "role": "role",
+            "quantity":"quantity"
 
         })
 
@@ -137,7 +139,8 @@ class TestProducts(unittest.TestCase):
             "name": "del",
             "model_no": "1523",
             "price": "2516",
-            "role": "role"
+            "role": "role",
+            "quantity":"quantity"
 
         })
 
