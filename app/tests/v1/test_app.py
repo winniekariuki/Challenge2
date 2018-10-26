@@ -113,13 +113,13 @@ class TestProducts(unittest.TestCase):
             "name": "del",
             "model_no": "1523",
             "price": "2516",
-            "role": "role",
-            "quantity":"quantity"
+            "quantity":"15"
 
         })
 
         response = self.test_client.post('api/v1/products', data=data2, headers={
                                          'content-type': 'application/json', 'access-token': self.admin_token})
+        print(json.loads(response.data.decode()))
         self.assertEqual(response.status_code, 201)
 
     def test_get_sales(self):
@@ -228,18 +228,7 @@ class TestProducts(unittest.TestCase):
                          ['message'], "password must  have a minimum of 6 characters")
         self.assertEqual(response.status_code, 400)
 
-    # def test_username_str(self):
-    #     user = json.dumps({
-    #         "username": int(Harriet),
-    #         "password": "a1A@fffgh",
-    #         "role": "Admin"})
-    #     response = self.test_client.post("/api/v1/users", data=user,
-    #                                      headers={
-    #                                          'content-type': 'application/json'})
-
-    #     self.assertEqual(json.loads(response.data)
-    #                      ['message'], "Strings only")
-    #     self.assertEqual(response.status_code, 400)
+    
     def test_empty_username(self):
         user = json.dumps({
             "username": "",
@@ -297,28 +286,3 @@ class TestProducts(unittest.TestCase):
                          ['message'], "Remove space")
         self.assertEqual(response.status_code, 400)
 
-    # def test_empty_space_username(self):
-    #     user = json.dumps({
-    #         "username": " Harriet",
-    #         "password": "Aa1@ffff",
-    #         "role": "Admin"})
-    #     response = self.test_client.post("/api/v1/users", data=user,
-    #                                      headers={
-    #                                          'content-type': 'application/json'})
-    #     self.assertEqual(json.loads(response.data)
-    #                      ['message'], "Remove space")
-    #     self.assertEqual(response.status_code, 400)
-    # def test_details_data(self):
-    #     product = json.dumps({
-    #         "name":""
-    #         "model_no": "1523",
-    #         "price": "2516",
-    #         "role": "role",
-    #         "quantity":"quantity"
-    #         })
-    #     response = self.test_client.post("/api/v1/users", data=product,
-    #                                      headers={
-    #                                          'content-type': 'application/json'})
-    #     self.assertEqual(json.loads(response.data)
-    #                      ['message'], "Provide all product Details")
-    #     self.assertEqual(response.status_code, 400) 

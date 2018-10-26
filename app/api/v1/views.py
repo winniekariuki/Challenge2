@@ -65,8 +65,9 @@ class UserAccount(Resource):
         return make_response(jsonify({
                     "Status": "Ok",
                     "Message": "Post Success",
-                    "UserAccount": users
-                }), 201)
+                    "username":username,
+                    "role":role
+                            }), 201)
 
 
 class LoginUser(Resource):
@@ -117,7 +118,7 @@ class Produce(Resource):
 
     @token_required
     def post(user_data,self):
-        if user_data == "Admin":
+        if user_data["role"] != "Admin":
            return make_response(jsonify({
                 "message":"Not authorized"
                 }) ,401)
