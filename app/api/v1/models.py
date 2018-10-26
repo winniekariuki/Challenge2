@@ -12,6 +12,7 @@ class Signup():
     def add_user(self):
         id = len(users) + 1
         user = {
+            "id":id,
             'username':self.username,
             'password':self.password,
             'role':self.role
@@ -40,19 +41,18 @@ class Product():
 
             }
         products.append(item)
-class record():
-    def __init__(self,id,product):
-        self.id = id
+class Sale():
+    def __init__(self,storeattendant_id, product):
         sale = {
                 'sale_id':len(sale_records)+1,
                 'sale':product,
-                'StoreAttendant_id':user_data["id"]
+                'storeattendant_id':storeattendant_id
                 
                 }
         sale_records.append(sale)
 
 
 def clear_data():
-    users.clear
-    products.clear
-    sale_records.clear    
+    users.clear()
+    products.clear()
+    sale_records.clear()   

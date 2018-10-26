@@ -9,10 +9,9 @@ import json
 from instance.config import Config
 
 from .models import *
+from .utilis import *
 
 
-#app = Flask(__name__)
-#app.config['SECRET_KEY'] = 'thisissecret'
 
 
 def token_required(f):
@@ -20,8 +19,8 @@ def token_required(f):
     def decorator(*args, **kwargs):
         token = None
         user_data = None
-        if 'access_token' in request.headers:
-             token = request.headers['access_token']
+        if 'access-token' in request.headers:
+             token = request.headers['access-token']
 
         if not token:
             return make_response(jsonify({
@@ -47,6 +46,7 @@ class UserAccount(Resource):
             "UserAccount": users
             }), 200)
 
+        
     def post(self):
         id = len(users) + 1
         data = request.get_json()
@@ -54,7 +54,12 @@ class UserAccount(Resource):
         password = data["password"]
         role = data["role"]
 
-        register = Signup(username,password,role)
+        Register.pass_validate(self,data)
+        Register.data_validate(self,data)
+        Register.empty_validate(self,data)
+        Register.space_validate(self,data)
+
+        register = Signup(username,generate_password_hash(password),role)
         register.add_user()
 
         return make_response(jsonify({
@@ -66,7 +71,6 @@ class UserAccount(Resource):
 
 class LoginUser(Resource):
     def post(self):
-        # print(users)
         data = request.get_json()
         username = data["username"]
         password = data["password"]
@@ -79,7 +83,7 @@ class LoginUser(Resource):
                                          }), 400)
 
         for user in users:
-            if user['username'] == username and user['password'] == password:
+            if user['username'] == username and check_password_hash(user['password'], password):
                 token = jwt.encode({'username': user['username'],
                                     'exp': datetime.datetime.utcnow() +
                                     datetime.timedelta(minutes=30)},
@@ -99,11 +103,18 @@ class Produce(Resource):
     def get(self):
         return make_response(jsonify({
 
+           
+
             "Status": "Ok",
             "Message": "Success",
             "MyProduce": products
 
             }), 200)
+
+
+        
+
+
     @token_required
     def post(user_data,self):
         if user_data == "Admin":
@@ -118,6 +129,8 @@ class Produce(Resource):
         price = data["price"]
         quantity = data["quantity"]
         date = datetime.datetime.now()
+        Validateproduct.detailsvalidate(self,data)
+        Validateproduct.emptydetails(self,data)
 
         device = Product(name,model_no,price,quantity,date)
         device.post_products()
@@ -164,13 +177,15 @@ class SaleRecord(Resource):
         if user_data["role"] != "storeattendant":
            return make_response(jsonify({
                 "message":"Not authorized"
-                }) ,401)       
+                }) ,401) 
         data = request.get_json()
         date = datetime.datetime.now()
+        storeattendant_id=user_data['id']
         print(data)
         for product in products:
-            if product['id'] == data:
-                record(id, product) 
+
+            if data != None and product['id'] == data["id"]:
+                Sale(storeattendant_id, product) 
             return make_response(jsonify({
                                     "Status":"Created",
                                     "Message":"Post Success",
@@ -179,13 +194,11 @@ class SaleRecord(Resource):
 class SingleSaleRecord(Resource):
         @token_required
         def get(user_data,self,saleID):
-            
             for sale in sale_records:
-                if user_data["role"] != 'Admin' or user_data["id"] != StoreAttendant_id:
-                    return make_response(jsonify({
-                        "message":"Not authorized"
-                         }) ,401)
-            for sale in sale_records:
+                if user_data["role"] != "Admin" or user_data["role"] != "storeattendant":
+                    make_response(jsonify({
+                        "message": "Unauthorized"
+                        }), 401)
                 if sale['sale_id'] == int(saleID):
                     return make_response(jsonify({
                                 "Status":"Ok",
