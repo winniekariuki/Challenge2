@@ -47,6 +47,16 @@ class Register:
         if " " in data["role"]:
             Response = "Remove space"
             abort(400, Response)
+    def existing_user(self,data):
+        for user in users:
+            if data["username"] == user["username"]:
+                Response="User already exists"
+                abort(406,Response)
+    def existing_product(self,data):
+        for product in products:
+            if data["name"] == product["name"]:
+                Response="product already exists"
+                abort(406,Response)
         
 
 class Validateproduct:

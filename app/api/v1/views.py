@@ -40,11 +40,15 @@ def token_required(f):
 
 class UserAccount(Resource):
     def get(self):
-        return make_response(jsonify({
-            "Status": "Ok",
-            "Message": "Success",
-            "UserAccount": users
-            }), 200)
+        for user in users:
+
+            return make_response(jsonify({
+                "Status": "Ok",
+                "Message": "Success",
+                "username":user["username"],
+                "role":user["role"]
+                
+                }), 200)
 
         
     def post(self):
@@ -58,6 +62,7 @@ class UserAccount(Resource):
         Register.data_validate(self,data)
         Register.empty_validate(self,data)
         Register.space_validate(self,data)
+        Register.existing_user(self,data)
 
         register = Signup(username,generate_password_hash(password),role)
         register.add_user()
@@ -132,6 +137,7 @@ class Produce(Resource):
         date = datetime.datetime.now()
         Validateproduct.detailsvalidate(self,data)
         Validateproduct.emptydetails(self,data)
+        Register.existing_product(self,data)
 
         device = Product(name,model_no,price,quantity,date)
         device.post_products()

@@ -110,6 +110,21 @@ class TestProducts(unittest.TestCase):
 
     def test_post_products(self):
         data2 = json.dumps({
+            "name": "delmonte",
+            "model_no": "1523",
+            "price": "2516",
+            "quantity":"15"
+
+        })
+
+
+        response = self.test_client.post('api/v1/products', data=data2, headers={
+                                         'content-type': 'application/json', 'access-token': self.admin_token})
+        print(json.loads(response.data.decode()))
+        self.assertEqual(response.status_code, 201)
+
+    def test_post_products(self):
+        data2 = json.dumps({
             "name": "del",
             "model_no": "1523",
             "price": "2516",
@@ -117,10 +132,11 @@ class TestProducts(unittest.TestCase):
 
         })
 
+
         response = self.test_client.post('api/v1/products', data=data2, headers={
                                          'content-type': 'application/json', 'access-token': self.admin_token})
         print(json.loads(response.data.decode()))
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 406)
 
     def test_get_sales(self):
 
@@ -286,3 +302,16 @@ class TestProducts(unittest.TestCase):
                          ['message'], "Remove space")
         self.assertEqual(response.status_code, 400)
 
+    def test_usernameexists(self):
+        users_data = json.dumps({
+                    "username": "winnie",
+                    "password": "aS@1234",
+                    "role": "Admin"
+
+                })
+        response = self.test_client.post("/api/v1/users", data=users_data,
+                                         headers={
+                                             'content-type': 'application/json'})
+        self.assertEqual(json.loads(response.data)
+                         ['message'], "User already exists")
+        self.assertEqual(response.status_code, 406)
