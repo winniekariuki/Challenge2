@@ -2,7 +2,6 @@
 [![Build Status](https://travis-ci.org/winniekariuki/Challenge2.svg?branch=develop)](https://travis-ci.org/winniekariuki/Challenge2)
 [![Coverage Status](https://coveralls.io/repos/github/winniekariuki/Challenge2/badge.svg)](https://coveralls.io/github/winniekariuki/Challenge2)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7208309d388e16f5a084/maintainability)](https://codeclimate.com/github/winniekariuki/Challenge2/maintainability)
-
 <div>Store Manager is a web application that helps store owners manage sales and
 product inventory records. This application is meant for use in a single store.</div>
 
